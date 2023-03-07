@@ -25,11 +25,11 @@ public class GoogleCloudNextMailSender {
         this.javaMailSender = javaMailSender;
     }
 
-    public EmailSentInfo sendMail(String invitee, String invitationLink,String supportEmail,String emailTo) {
+    public EmailSentInfo sendMail(String invitee, String invitationLink,String supportEmail,String emailTo,String sponsorPassType) {
         log.info("Sending mail");
         try {
 
-            MimeMessage message = createMessageFrom(invitee,invitationLink,supportEmail,emailTo);
+            MimeMessage message = createMessageFrom(invitee,invitationLink,supportEmail,emailTo,sponsorPassType);
             javaMailSender.send(message);
 
         return EmailSentInfo.builder()
@@ -44,7 +44,7 @@ public class GoogleCloudNextMailSender {
         }
     }
 
-    private MimeMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo) throws MessagingException, UnsupportedEncodingException {
+    private MimeMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo,String sponsorPassType) throws MessagingException, UnsupportedEncodingException {
 
         //decode base64 invitation link
         if (!invitationLink.startsWith("http")) {
@@ -57,11 +57,11 @@ public class GoogleCloudNextMailSender {
         helper.setReplyTo(NOREPLY_BWEVENTSTECH_COM);
         helper.setTo(emailTo);
         helper.setSubject(getSubjectFrom(invitee));
-        helper.setText(getBodyFrom(invitee,invitationLink,supportEmail),true);
+        helper.setText(getBodyFrom(invitee,invitationLink,supportEmail,sponsorPassType),true);
         return mimeMailMessage;
     }
 
-    private String getBodyFrom(String invitee, String invitationLink, String supportEmail) {
+    private String getBodyFrom(String invitee, String invitationLink, String supportEmail,String sponsorPassType) {
 
     return "<div style=\"font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;font-size:14px;color:#333\">\n" +
             "<table width=\"100%\"><tbody><tr>\n" +
@@ -90,7 +90,7 @@ public class GoogleCloudNextMailSender {
             "<td>\n" +
             "            <p style=\"margin-top:0;margin-bottom:10px\">Join us for Google Cloud Next ’23. Together we’ll explore how to adopt and integrate the latest technologies into your business. Engage with leaders and experts who are using Google Cloud to drive growth and power success. Be part of the community that’s shaping the future of cloud.</p>\n" +
             "\n" +
-            "<p style=\"margin-top:0;margin-bottom:10px\">As part of your Next sponsorship, we’re pleased to invite you to register for the Full Conference Pass at Google Cloud Next ’23.</p>\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">As part of your Next sponsorship, we’re pleased to invite you to register for the "+sponsorPassType+" at Google Cloud Next ’23.</p>\n" +
             "\n" +
             "<p style=\"margin-top:0;margin-bottom:10px\">Click <a href=\""+invitationLink+"\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q="+invitationLink+"\">here</a> to register now.</p>\n" +
             "\n" +
