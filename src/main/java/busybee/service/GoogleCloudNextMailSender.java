@@ -9,13 +9,16 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
 @Slf4j
 @Service
 public class GoogleCloudNextMailSender {
     public static final String NOREPLY_BWEVENTSTECH_COM = "noreply@bweventstech.com";
+    public static final String THE_GOOGLE_CLOUD_SPONSORSHIP_TEAM = "The Google Cloud Sponsorship Team";
     private final JavaMailSender javaMailSender;
 
     public GoogleCloudNextMailSender(JavaMailSender javaMailSender) {
@@ -41,7 +44,7 @@ public class GoogleCloudNextMailSender {
         }
     }
 
-    private MimeMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo) throws MessagingException {
+    private MimeMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo) throws MessagingException, UnsupportedEncodingException {
 
         //decode base64 invitation link
         if (!invitationLink.startsWith("http")) {
@@ -50,7 +53,7 @@ public class GoogleCloudNextMailSender {
 
         MimeMessage mimeMailMessage = javaMailSender.createMimeMessage();
         var helper = new MimeMessageHelper(mimeMailMessage,"utf-8");
-        helper.setFrom(NOREPLY_BWEVENTSTECH_COM);
+        helper.setFrom(new InternetAddress(NOREPLY_BWEVENTSTECH_COM, THE_GOOGLE_CLOUD_SPONSORSHIP_TEAM));
         helper.setReplyTo(NOREPLY_BWEVENTSTECH_COM);
         helper.setTo(emailTo);
         helper.setSubject(getSubjectFrom(invitee));
