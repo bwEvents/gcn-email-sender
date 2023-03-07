@@ -1,7 +1,9 @@
-# national-guard-ats
+# GCN - Email Sender
 
 # API
-1. Search Ngaus API for users using name and state
-eg: name : john , state: VA
+1. Send mail according to template
 
-2. Create child registrant using group id , event id and customer key.
+/sendEmail?invitee=BW Events&invitationLink=http://www.hello.com&supportEmail=hello@gmail.com&emailTo=kusal@bweventstech.com
+
+header
+auth-code : auth-value
