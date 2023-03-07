@@ -17,6 +17,7 @@ public class MailSenderController {
         this.appProperties = appProperties;
     }
 
+    @CrossOrigin
     @GetMapping("/sendEmail")
     public EmailSentInfo sendMail(@RequestParam String invitee, @RequestParam String invitationLink,@RequestParam String supportEmail,
                                   @RequestParam String emailTo, @RequestHeader("auth-code") String authCode) {
