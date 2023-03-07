@@ -4,8 +4,12 @@ import busybee.dto.EmailSentInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMailMessage;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.util.Base64;
 
 @Slf4j
@@ -22,7 +26,7 @@ public class GoogleCloudNextMailSender {
         log.info("Sending mail");
         try {
 
-            SimpleMailMessage message = createMessageFrom(invitee,invitationLink,supportEmail,emailTo);
+            MimeMessage message = createMessageFrom(invitee,invitationLink,supportEmail,emailTo);
             javaMailSender.send(message);
 
         return EmailSentInfo.builder()
@@ -37,19 +41,21 @@ public class GoogleCloudNextMailSender {
         }
     }
 
-    private SimpleMailMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo) {
+    private MimeMessage createMessageFrom(String invitee, String invitationLink, String supportEmail, String emailTo) throws MessagingException {
 
         //decode base64 invitation link
         if (!invitationLink.startsWith("http")) {
             invitationLink = new String(Base64.getDecoder().decode(invitationLink));
         }
-       var message =  new SimpleMailMessage();
-        message.setFrom(NOREPLY_BWEVENTSTECH_COM);
-        message.setReplyTo(NOREPLY_BWEVENTSTECH_COM);
-        message.setTo(emailTo);
-        message.setSubject(getSubjectFrom(invitee));
-        message.setText(getBodyFrom(invitee,invitationLink,supportEmail));
-        return message;
+
+        MimeMessage mimeMailMessage = javaMailSender.createMimeMessage();
+        var helper = new MimeMessageHelper(mimeMailMessage,"utf-8");
+        helper.setFrom(NOREPLY_BWEVENTSTECH_COM);
+        helper.setReplyTo(NOREPLY_BWEVENTSTECH_COM);
+        helper.setTo(emailTo);
+        helper.setSubject(getSubjectFrom(invitee));
+        helper.setText(getBodyFrom(invitee,invitationLink,supportEmail),true);
+        return mimeMailMessage;
     }
 
     private String getBodyFrom(String invitee, String invitationLink, String supportEmail) {
@@ -105,9 +111,9 @@ public class GoogleCloudNextMailSender {
             "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
             "Please take a moment and register for this event by clicking the link below. Failure to do so in a timely manner may affect your ability to attend this event.<u></u><u></u></p>\n" +
             "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "<a href=\""+invitationLink+"\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q="+invitationLink+"&amp;source=gmail&amp;ust=1678255858880000&amp;usg=AOvVaw0wwLoFZ7VjXlaIS6xK3eU9\">https://qa-dot-gweb-<wbr>cloudnext2023-staging.appspot.<wbr>com/next?package=41739&amp;code=<wbr>BWevents_Luminary&amp;invite=<wbr>12272346</a><u></u><u></u></p>\n" +
+            "<a href=\""+invitationLink+"\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q="+invitationLink+"&amp;source=gmail&amp;ust=1678255858880000&amp;usg=AOvVaw0wwLoFZ7VjXlaIS6xK3eU9\">"+invitationLink+"</a><u></u><u></u></p>\n" +
             "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "If you have any questions, please email&nbsp;<a href=\"mailto:"+supportEmail+"\" target=\"_blank\">cole@bweventstech.com</a>.<u></u><u></u></p>\n" +
+            "If you have any questions, please email&nbsp;<a href=\"mailto:"+supportEmail+"\" target=\"_blank\">"+supportEmail+"</a>.<u></u><u></u></p>\n" +
             "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
             "Thank you,<u></u><u></u></p>\n" +
             "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
