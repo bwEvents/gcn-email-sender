@@ -63,81 +63,55 @@ public class GoogleCloudNextMailSender {
 
     private String getBodyFrom(String invitee, String invitationLink, String supportEmail) {
 
-    return "<div align=\"center\">\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in\">\n" +
-            "<tbody>\n" +
-            "<tr>\n" +
-            "<td style=\"padding:11.25pt 11.25pt 11.25pt 11.25pt\">\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%\">\n" +
-            "<tbody>\n" +
-            "<tr>\n" +
-            "<td style=\"padding:7.5pt .75pt 7.5pt .75pt\">\n" +
-            "<p class=\"MsoNormal\"><img border=\"0\" width=\"198\" style=\"width:2.0625in\" id=\"m_3877703817395152821m_8144242891709996236_x0000_i1025\" src=\"https://ci5.googleusercontent.com/proxy/Zh7dz39UWwtjxtJpVKKmQoDFz8wkmjDcaMGgRDo3BT5D92uHdQwpLY43kUsXPhB6x7mF6DOgZ7RdJKc7vxrTilRgzQ63tkfA3mv8cuKCKJqO8XQCHg=s0-d-e1-ft#https://assets.swoogo.com/uploads/medium/1951390-62ea82ee49307.png\" class=\"CToWUd\" data-bit=\"iit\"><u></u><u></u></p>\n" +
+    return "<div style=\"font-family:'Helvetica Neue','Helvetica','Arial',sans-serif;font-size:14px;color:#333\">\n" +
+            "<table width=\"100%\"><tbody><tr>\n" +
+            "<td align=\"center\">\n" +
+            "            \n" +
+            "                <div style=\"color:#333333;display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden\">You've been invited by "+invitee+" to register for Google Cloud Next '23</div>\n" +
+            "                <div style=\"display:none;max-height:0;overflow:hidden\">&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C<wbr>&nbsp;\u200C&nbsp;&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;<wbr>&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;\u200C&nbsp;</div>\n" +
+            "            <table width=\"600\" cellspacing=\"0\" cellpadding=\"0\"><tbody><tr></tr></tbody></table>\n" +
+            "<table cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"padding:15px\"><tbody><tr>\n" +
+            "<td>\n" +
+            "\n" +
+            "                        <table width=\"100%\" cellspacing=\"0\" style=\"padding-top:10px;padding-bottom:10px\"><tbody><tr><td align=\"left\"><a><img src=\"https://ci5.googleusercontent.com/proxy/Zh7dz39UWwtjxtJpVKKmQoDFz8wkmjDcaMGgRDo3BT5D92uHdQwpLY43kUsXPhB6x7mF6DOgZ7RdJKc7vxrTilRgzQ63tkfA3mv8cuKCKJqO8XQCHg=s0-d-e1-ft#https://assets.swoogo.com/uploads/medium/1951390-62ea82ee49307.png\" width=\"198\" alt=\"\" style=\"max-width:198px\" class=\"CToWUd a6T\" data-bit=\"iit\" tabindex=\"0\"><div class=\"a6S\" dir=\"ltr\" style=\"opacity: 0.01; left: 169px; top: 594.297px;\"><div id=\":c1\" class=\"T-I J-J5-Ji aQv T-I-ax7 L3 a5q\" title=\"Download\" role=\"button\" tabindex=\"0\" aria-label=\"Download attachment \" jslog=\"91252; u014N:cOuCgd,Kr2w4b,xr6bB\" data-tooltip-class=\"a1V\"><div class=\"akn\"><div class=\"aSK J-J5-Ji aYr\"></div></div></div></div></a></td></tr></tbody></table>\n" +
+            "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr>\n" +
+            "<td>\n" +
+            "            <h1>Google Cloud<br>\n" +
+            "Next&nbsp;’23</h1>        </td>\n" +
+            "    </tr></tbody></table>\n" +
+            "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr>\n" +
+            "<td>\n" +
+            "            <h3><span style=\"font-size:18px\">You've been invited by "+invitee+" to register for Google Cloud Next '23</span></h3>        </td>\n" +
+            "    </tr></tbody></table>\n" +
+            "<table cellspacing=\"0\"><tbody><tr>\n" +
+            "<td height=\"20\"></td>\n" +
+            "</tr></tbody></table>\n" +
+            "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tbody><tr>\n" +
+            "<td>\n" +
+            "            <p style=\"margin-top:0;margin-bottom:10px\">Join us for Google Cloud Next ’23. Together we’ll explore how to adopt and integrate the latest technologies into your business. Engage with leaders and experts who are using Google Cloud to drive growth and power success. Be part of the community that’s shaping the future of cloud.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">As part of your Next sponsorship, we’re pleased to invite you to register for the Full Conference Pass at Google Cloud Next ’23.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">Click <a href=\""+invitationLink+"\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q="+invitationLink+"\">here</a> to register now.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">If you believe that you should be assigned a different pass type, please email&nbsp;your sponsor manager.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">To ensure that you receive the discount for your registration please use <a href=\"mailto:"+supportEmail+"\" target=\"_blank\">"+supportEmail+"</a> to complete your registration.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">If you have any questions, please email&nbsp;your sponsor manager.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">Thank you for your continued support and success as a Google Cloud partner. We look forward to seeing you there.</p>\n" +
+            "\n" +
+            "<p style=\"margin-top:0;margin-bottom:10px\">The Google Cloud Sponsorship Team</p>        </td>\n" +
+            "    </tr></tbody></table>\n" +
+            "<table cellspacing=\"0\"><tbody><tr>\n" +
+            "<td height=\"20\"></td>\n" +
+            "</tr></tbody></table>\n" +
             "</td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "<p class=\"MsoNormal\"><span style=\"display:none\"><u></u>&nbsp;<u></u></span></p>\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%\">\n" +
-            "<tbody>\n" +
-            "<tr>\n" +
-            "<td style=\"padding:0in 0in 0in 0in\">\n" +
-            "<h1>Google Cloud<br>\n" +
-            "Next&nbsp;’23<u></u><u></u></h1>\n" +
+            "                </tr></tbody></table>\n" +
             "</td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "<p class=\"MsoNormal\"><span style=\"display:none\"><u></u>&nbsp;<u></u></span></p>\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%\">\n" +
-            "<tbody>\n" +
-            "<tr>\n" +
-            "<td style=\"padding:0in 0in 0in 0in\">\n" +
-            "<h3>You've been invited by "+ invitee +" to register for Google Cloud Next '23<u></u><u></u></h3>\n" +
-            "</td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "<p class=\"MsoNormal\"><span style=\"display:none\"><u></u>&nbsp;<u></u></span></p>\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n" +
-            "<tbody>\n" +
-            "<tr style=\"height:15.0pt\">\n" +
-            "<td style=\"padding:.75pt .75pt .75pt .75pt;height:15.0pt\"></td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "<p class=\"MsoNormal\"><span style=\"display:none\"><u></u>&nbsp;<u></u></span></p>\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%\">\n" +
-            "<tbody>\n" +
-            "<tr>\n" +
-            "<td style=\"padding:0in 0in 0in 0in\">\n" +
-            "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "Please take a moment and register for this event by clicking the link below. Failure to do so in a timely manner may affect your ability to attend this event.<u></u><u></u></p>\n" +
-            "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "<a href=\""+invitationLink+"\" target=\"_blank\" data-saferedirecturl=\"https://www.google.com/url?q="+invitationLink+"&amp;source=gmail&amp;ust=1678255858880000&amp;usg=AOvVaw0wwLoFZ7VjXlaIS6xK3eU9\">"+invitationLink+"</a><u></u><u></u></p>\n" +
-            "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "If you have any questions, please email&nbsp;<a href=\"mailto:"+supportEmail+"\" target=\"_blank\">"+supportEmail+"</a>.<u></u><u></u></p>\n" +
-            "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "Thank you,<u></u><u></u></p>\n" +
-            "<p style=\"margin-right:0in;margin-bottom:7.5pt;margin-left:0in\">\n" +
-            "The Google Cloud Sponsorship Team<u></u><u></u></p>\n" +
-            "</td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "<p class=\"MsoNormal\"><span style=\"display:none\"><u></u>&nbsp;<u></u></span></p>\n" +
-            "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n" +
-            "<tbody>\n" +
-            "<tr style=\"height:15.0pt\">\n" +
-            "<td style=\"padding:.75pt .75pt .75pt .75pt;height:15.0pt\"></td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "</td>\n" +
-            "</tr>\n" +
-            "</tbody>\n" +
-            "</table>\n" +
-            "</div>";
+            "    </tr></tbody></table><div class=\"yj6qo\"></div><div class=\"adL\">\n" +
+            "</div></div>";
     }
 
     private String getSubjectFrom(String invitee) {
