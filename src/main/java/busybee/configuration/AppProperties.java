@@ -17,6 +17,9 @@ public class AppProperties {
     public static final String SWOGOO_BASE_URI = "https://api.swoogo.com/api/v1";
     public static final String ALL_REGISTRANTS_RESPONSE_FIELD = "*";
 
+    @Value("${auth.code}")
+    private String authCode;
+
     @PostConstruct
     public void log() {
         log.info("Starting with settings {}", this);
