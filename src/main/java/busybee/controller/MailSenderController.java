@@ -20,7 +20,8 @@ public class MailSenderController {
     @CrossOrigin
     @GetMapping("/sendEmail")
     public EmailSentInfo sendMail(@RequestParam String invitee, @RequestParam String invitationLink,@RequestParam String supportEmail,
-                                  @RequestParam String emailTo,@RequestParam String sponsorPassType, @RequestHeader("auth-code") String authCode) {
+                                  @RequestParam String emailTo,@RequestParam String sponsorPassType, @RequestParam(required = false) boolean cancelEmail,
+                                  @RequestHeader("auth-code") String authCode) {
         if (!appProperties.getAuthCode().equals(authCode)) {
             return EmailSentInfo
                     .builder()
@@ -28,6 +29,6 @@ public class MailSenderController {
                     .build();
         }
 
-        return mailSender.sendMail(invitee,invitationLink,supportEmail,emailTo,sponsorPassType);
+        return mailSender.sendMail(invitee,invitationLink,supportEmail,emailTo,sponsorPassType, cancelEmail);
     }
 }
